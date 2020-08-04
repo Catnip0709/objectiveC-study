@@ -16,6 +16,10 @@
 		2B54341324D9128D009FE983 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54341224D9128D009FE983 /* main.m */; };
 		2B54341D24D9128D009FE983 /* ocDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54341C24D9128D009FE983 /* ocDemoTests.m */; };
 		2B54342824D9128D009FE983 /* ocDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54342724D9128D009FE983 /* ocDemoUITests.m */; };
+		2B841A4924D93725006292D6 /* TopBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B841A4824D93725006292D6 /* TopBtnView.m */; };
+		2B8426B724D95A44006292D6 /* MovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426B624D95A44006292D6 /* MovieView.m */; };
+		2B8426BA24D95B74006292D6 /* ActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426B924D95B74006292D6 /* ActorView.m */; };
+		2B8426BF24D9984F006292D6 /* ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426BE24D9984F006292D6 /* ViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,15 @@
 		2B54342324D9128D009FE983 /* ocDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ocDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B54342724D9128D009FE983 /* ocDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ocDemoUITests.m; sourceTree = "<group>"; };
 		2B54342924D9128D009FE983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B841A4724D93699006292D6 /* TopBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopBtnView.h; sourceTree = "<group>"; };
+		2B841A4824D93725006292D6 /* TopBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopBtnView.m; sourceTree = "<group>"; };
+		2B8426B524D95A31006292D6 /* MovieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieView.h; sourceTree = "<group>"; };
+		2B8426B624D95A44006292D6 /* MovieView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieView.m; sourceTree = "<group>"; };
+		2B8426B824D95B65006292D6 /* ActorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActorView.h; sourceTree = "<group>"; };
+		2B8426B924D95B74006292D6 /* ActorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActorView.m; sourceTree = "<group>"; };
+		2B8426BC24D995D0006292D6 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		2B8426BD24D996FA006292D6 /* ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewModel.h; sourceTree = "<group>"; };
+		2B8426BE24D9984F006292D6 /* ViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +117,13 @@
 		2B5433FF24D9128B009FE983 /* ocDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2B8426BB24D99599006292D6 /* Model */,
+				2B54343624D93629009FE983 /* View */,
+				2B54343524D93618009FE983 /* VC */,
 				2B54340024D9128B009FE983 /* AppDelegate.h */,
 				2B54340124D9128B009FE983 /* AppDelegate.m */,
 				2B54340324D9128B009FE983 /* SceneDelegate.h */,
 				2B54340424D9128B009FE983 /* SceneDelegate.m */,
-				2B54340624D9128B009FE983 /* ViewController.h */,
-				2B54340724D9128B009FE983 /* ViewController.m */,
 				2B54340924D9128B009FE983 /* Main.storyboard */,
 				2B54340C24D9128D009FE983 /* Assets.xcassets */,
 				2B54340E24D9128D009FE983 /* LaunchScreen.storyboard */,
@@ -135,6 +149,38 @@
 				2B54342924D9128D009FE983 /* Info.plist */,
 			);
 			path = ocDemoUITests;
+			sourceTree = "<group>";
+		};
+		2B54343524D93618009FE983 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				2B54340624D9128B009FE983 /* ViewController.h */,
+				2B54340724D9128B009FE983 /* ViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		2B54343624D93629009FE983 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B841A4724D93699006292D6 /* TopBtnView.h */,
+				2B841A4824D93725006292D6 /* TopBtnView.m */,
+				2B8426B524D95A31006292D6 /* MovieView.h */,
+				2B8426B624D95A44006292D6 /* MovieView.m */,
+				2B8426B924D95B74006292D6 /* ActorView.m */,
+				2B8426B824D95B65006292D6 /* ActorView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B8426BB24D99599006292D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B8426BC24D995D0006292D6 /* Model.h */,
+				2B8426BD24D996FA006292D6 /* ViewModel.h */,
+				2B8426BE24D9984F006292D6 /* ViewModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +314,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B54340824D9128B009FE983 /* ViewController.m in Sources */,
+				2B8426BA24D95B74006292D6 /* ActorView.m in Sources */,
+				2B8426BF24D9984F006292D6 /* ViewModel.m in Sources */,
 				2B54340224D9128B009FE983 /* AppDelegate.m in Sources */,
 				2B54341324D9128D009FE983 /* main.m in Sources */,
+				2B8426B724D95A44006292D6 /* MovieView.m in Sources */,
+				2B841A4924D93725006292D6 /* TopBtnView.m in Sources */,
 				2B54340524D9128B009FE983 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

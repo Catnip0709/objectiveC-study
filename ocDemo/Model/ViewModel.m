@@ -1,15 +1,9 @@
 //
-//  ViewController.h
+//  ViewModel.m
 //  ocDemo
 //
 //  Created by catnip on 2020/8/4.
 //  Copyright © 2020 catnip. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-
-
-@end
-
+#import <Foundation/Foundation.h>
