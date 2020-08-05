@@ -10,14 +10,13 @@
 #define MovieModel_h
 
 
-#endif /* MovieModel_h */
+#endif /* Model_h */
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface ActorModel {
+struct ActorModel{
     NSString *name;
     NSString *subname;
     NSString *photo;
-}
-@end
+};

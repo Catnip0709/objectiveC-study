@@ -15,7 +15,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface MovieView : UIView {
-    UICollectionView *cv;
-}
+@interface MovieView : UIView 
+@property(nonatomic ,strong) UICollectionView *cv;
 @end

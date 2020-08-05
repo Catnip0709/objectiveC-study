@@ -14,18 +14,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "Model.h"
 
-@interface ActorTableViewCell: UITableViewCell {
-    UILabel *actorName;
-    UILabel *subName;
-    UIImageView *photo;
-    NSMutableArray *actorData;
-}
+@interface ActorTableViewCell: UITableViewCell
+@property(nonatomic ,strong) UILabel *actorName;
+@property(nonatomic ,strong) UILabel *subName;
+@property(nonatomic ,strong) UIImageView *photo;
 @end
 
-@interface ActorView : UIView {
-    UITableView *actorTableView;
-}
+@interface ActorView : UIView
+@property(nonatomic ,strong) UITableView *actorTableView;
+@property(nonatomic ,strong) NSMutableArray *actorData;
 @end
 

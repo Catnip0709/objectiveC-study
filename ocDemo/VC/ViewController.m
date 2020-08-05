@@ -7,21 +7,25 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
-
-@end
+#import "TopBtnView.h"
+#import "ActorView.h"
+#import "ViewModel.h"
 
 @implementation ViewController: UIViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    topBtnView = [[TopBtnView alloc]initWithFrame:CGRectMake(0,50, self.view.frame.size.width,25)];
-    actorView = [[ActorView alloc]initWithFrame:CGRectMake(0, topBtnView.frame.origin.y + topBtnView.frame.size.height + 50, self.view.frame.size.width, 500)];
+    _topBtnView = [[TopBtnView alloc]initWithFrame:CGRectMake(0,50, self.view.frame.size.width,25)];
+    _actorView = [[ActorView alloc]initWithFrame:CGRectMake(0, _topBtnView.frame.origin.y + _topBtnView.frame.size.height + 50, self.view.frame.size.width, 500)];
     
-    [self.view addSubview: topBtnView];
-    [self.view addSubview: actorView];
+    _viewModel = [[ViewModel alloc]init];
+    [_viewModel fetchData:^(NSMutableArray *data) {
+        self.actorView.actorData = data; // 可能发生强引用循环
+        NSLog(@"1");
+    }];
+    
+    [self.view addSubview: _topBtnView];
+    [self.view addSubview: _actorView];
 }
 @end

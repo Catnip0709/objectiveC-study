@@ -12,8 +12,17 @@
 
 #endif /* ViewModel_h */
 
-@interface ViewModel {
-    
-}
--(void) fetchData;
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@class ViewController;
+
+typedef void(^fetchDataBlock)(NSMutableArray*); // 回调函数定义
+
+@interface ViewModel : NSObject
+@property(nonatomic, strong) NSMutableArray *actorData;
+@property(nonatomic, strong) ViewController *delegate;
+@property(nonatomic, strong) fetchDataBlock myBlock;
+-(void) fetchData: (fetchDataBlock)block;
 @end
+

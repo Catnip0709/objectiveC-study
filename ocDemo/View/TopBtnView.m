@@ -16,71 +16,71 @@
     [self initView];
     [self pressEvent];
     
-    [self addSubview: movieBtn];
-    [self addSubview: mallBtn];
-    [self addSubview: concertBtn];
+    [self addSubview: _movieBtn];
+    [self addSubview: _mallBtn];
+    [self addSubview: _concertBtn];
     
     return self;
 }
 
 -(void) pressMovieBtn {
-    movieBtn.backgroundColor = UIColor.redColor;
-    [movieBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-    mallBtn.backgroundColor = UIColor.whiteColor;
-    [mallBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
-    concertBtn.backgroundColor = UIColor.whiteColor;
-    [concertBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _movieBtn.backgroundColor = UIColor.redColor;
+    [_movieBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    _mallBtn.backgroundColor = UIColor.whiteColor;
+    [_mallBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _concertBtn.backgroundColor = UIColor.whiteColor;
+    [_concertBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
 }
 -(void) pressMallBtn {
-    movieBtn.backgroundColor = UIColor.whiteColor;
-    [movieBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
-    mallBtn.backgroundColor = UIColor.redColor;
-    [mallBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-    concertBtn.backgroundColor = UIColor.whiteColor;
-    [concertBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _movieBtn.backgroundColor = UIColor.whiteColor;
+    [_movieBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _mallBtn.backgroundColor = UIColor.redColor;
+    [_mallBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    _concertBtn.backgroundColor = UIColor.whiteColor;
+    [_concertBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
 }
 -(void) pressConcertBtn {
-    movieBtn.backgroundColor = UIColor.whiteColor;
-    [movieBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
-    mallBtn.backgroundColor = UIColor.whiteColor;
-    [mallBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
-    concertBtn.backgroundColor = UIColor.redColor;
-    [concertBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    _movieBtn.backgroundColor = UIColor.whiteColor;
+    [_movieBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _mallBtn.backgroundColor = UIColor.whiteColor;
+    [_mallBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _concertBtn.backgroundColor = UIColor.redColor;
+    [_concertBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 }
 
 -(void) initView {
-    movieBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    movieBtn.frame = CGRectMake(0.5 * self.frame.size.width - 120, 0, 80, 25);
-    movieBtn.backgroundColor = UIColor.redColor;
-    movieBtn.layer.masksToBounds = YES;
-    movieBtn.layer.borderWidth = 1.0;
-    movieBtn.layer.borderColor = [UIColor redColor].CGColor;
-    [movieBtn setTitle: @"电影" forState: UIControlStateNormal];
-    [movieBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    _movieBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _movieBtn.frame = CGRectMake(0.5 * self.frame.size.width - 120, 0, 80, 25);
+    _movieBtn.backgroundColor = UIColor.redColor;
+    _movieBtn.layer.masksToBounds = YES;
+    _movieBtn.layer.borderWidth = 1.0;
+    _movieBtn.layer.borderColor = [UIColor redColor].CGColor;
+    [_movieBtn setTitle: @"电影" forState: UIControlStateNormal];
+    [_movieBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     
-    mallBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    mallBtn.frame = CGRectMake(0.5 * self.frame.size.width - 40, 0, 80, 25);
-    mallBtn.backgroundColor = UIColor.whiteColor;
-    mallBtn.layer.masksToBounds = YES;
-    mallBtn.layer.borderWidth = 1.0;
-    mallBtn.layer.borderColor = [UIColor redColor].CGColor;
-    [mallBtn setTitle: @"商场" forState: UIControlStateNormal];
-    [mallBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _mallBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _mallBtn.frame = CGRectMake(0.5 * self.frame.size.width - 40, 0, 80, 25);
+    _mallBtn.backgroundColor = UIColor.whiteColor;
+    _mallBtn.layer.masksToBounds = YES;
+    _mallBtn.layer.borderWidth = 1.0;
+    _mallBtn.layer.borderColor = [UIColor redColor].CGColor;
+    [_mallBtn setTitle: @"商场" forState: UIControlStateNormal];
+    [_mallBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
     
-    concertBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    concertBtn.frame = CGRectMake(0.5 * self.frame.size.width + 40, 0, 80, 25);
-    concertBtn.backgroundColor = UIColor.whiteColor;
-    concertBtn.layer.masksToBounds = YES;
-    concertBtn.layer.borderWidth = 1.0;
-    concertBtn.layer.borderColor = [UIColor redColor].CGColor;
-    [concertBtn setTitle: @"演出" forState: UIControlStateNormal];
-    [concertBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    _concertBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _concertBtn.frame = CGRectMake(0.5 * self.frame.size.width + 40, 0, 80, 25);
+    _concertBtn.backgroundColor = UIColor.whiteColor;
+    _concertBtn.layer.masksToBounds = YES;
+    _concertBtn.layer.borderWidth = 1.0;
+    _concertBtn.layer.borderColor = [UIColor redColor].CGColor;
+    [_concertBtn setTitle: @"演出" forState: UIControlStateNormal];
+    [_concertBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
 }
 
 -(void)pressEvent {
-    [movieBtn addTarget:self action:@selector(pressMovieBtn) forControlEvents:UIControlEventTouchUpInside];
-    [mallBtn addTarget:self action:@selector(pressMallBtn) forControlEvents:UIControlEventTouchUpInside];
-    [concertBtn addTarget:self action:@selector(pressConcertBtn) forControlEvents:UIControlEventTouchUpInside];
+    [_movieBtn addTarget:self action:@selector(pressMovieBtn) forControlEvents:UIControlEventTouchUpInside];
+    [_mallBtn addTarget:self action:@selector(pressMallBtn) forControlEvents:UIControlEventTouchUpInside];
+    [_concertBtn addTarget:self action:@selector(pressConcertBtn) forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end

@@ -14,11 +14,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface TopBtnView : UIView {
-    UIButton *movieBtn;
-    UIButton *mallBtn;
-    UIButton *concertBtn;
-}
+@interface TopBtnView : UIView
+@property(nonatomic ,strong) UIButton *movieBtn;
+@property(nonatomic ,strong) UIButton *mallBtn;
+@property(nonatomic ,strong) UIButton *concertBtn;
 -(void) pressMallBtn;
 -(void) pressEvent;
 -(void) initView;

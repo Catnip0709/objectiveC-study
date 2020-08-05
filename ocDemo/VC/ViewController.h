@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TopBtnView.h"
-#import "ActorView.h"
-#import "ViewModel.h"
 
-@interface ViewController : UIViewController {
-    TopBtnView *topBtnView;
-    ActorView *actorView;
-    ViewModel *viewModel;
-}
+@class ViewModel;
+@class TopBtnView;
+@class ActorView;
 
+@interface ViewController : UIViewController
+
+@property(nonatomic ,strong) TopBtnView *topBtnView;
+@property(nonatomic ,strong) ActorView *actorView;
+@property(nonatomic ,strong) ViewModel *viewModel;
 
 @end
 
