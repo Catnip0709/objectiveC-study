@@ -10,22 +10,30 @@
 #import "TopBtnView.h"
 #import "ActorView.h"
 #import "ViewModel.h"
+#import "MovieView.h"
+#import "Model.h"
 
 @implementation ViewController: UIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _topBtnView = [[TopBtnView alloc]initWithFrame:CGRectMake(0,50, self.view.frame.size.width,25)];
-    _actorView = [[ActorView alloc]initWithFrame:CGRectMake(0, _topBtnView.frame.origin.y + _topBtnView.frame.size.height + 50, self.view.frame.size.width, 500)];
+    self.topBtnView = [[TopBtnView alloc]initWithFrame:CGRectMake(0,50, self.view.frame.size.width,25)];
+    self.movieView = [[MovieView alloc]initWithFrame: CGRectMake(0, self.topBtnView.frame.origin.y + self.topBtnView.frame.size.height + 20, self.view.frame.size.width, 300)];
+    self.actorView = [[ActorView alloc]initWithFrame:CGRectMake(0,_movieView.frame.origin.y + self.movieView.frame.size.height + 20, self.view.frame.size.width, 500)];
     
-    _viewModel = [[ViewModel alloc]init];
-    [_viewModel fetchData:^(NSMutableArray *data) {
-        self.actorView.actorData = data; // 可能发生强引用循环
-        NSLog(@"1");
+    self.viewModel = [[ViewModel alloc]init];
+     [self.viewModel fetchData:^(NSMutableArray *data) {
+         if(data) {
+             struct MovieModel firstMovie;
+             [[data objectAtIndex: 0] getValue:&firstMovie];
+             self.actorView.actorData = firstMovie.actorData;
+             NSLog(@"123");
+         }
     }];
     
-    [self.view addSubview: _topBtnView];
-    [self.view addSubview: _actorView];
+    [self.view addSubview: self.topBtnView];
+    [self.view addSubview: self.movieView];
+    [self.view addSubview: self.actorView];
 }
 @end

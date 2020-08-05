@@ -9,6 +9,8 @@
 #import "ActorView.h"
 #import "Model.h"
 
+#define ACTOR_TABLEVIEW_CELL @"ActorTableViewCell"
+
 @implementation ActorTableViewCell
 + (CGFloat)cellHeight {
     return 200;
@@ -16,49 +18,50 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        //在这里写入定制cell的内容
-        _photo = [[UIImageView alloc]initWithFrame:CGRectMake(20, 30, 140, 140)];
-        _photo.image = [UIImage imageNamed:@"yyqx.png"];
+        self.photo = [[UIImageView alloc]initWithFrame:CGRectMake(20, 30, 140, 140)];
+        self.photo.image = [UIImage imageNamed:@"yyqx.png"];
         [self addSubview:_photo];
         
-        _actorName = [[UILabel alloc]initWithFrame:CGRectMake(_photo.frame.origin.x + _photo.frame.size.width + 50, 60, 100, 30)];
+        self.actorName = [[UILabel alloc]initWithFrame:CGRectMake(_photo.frame.origin.x + self.photo.frame.size.width + 50, 60, 100, 30)];
         [_actorName setText:@"姓名"];
         [_actorName setTextColor:UIColor.blackColor];
-        _actorName.textAlignment = NSTextAlignmentCenter;
+        self.actorName.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_actorName];
         
-        _subName = [[UILabel alloc]initWithFrame:CGRectMake(_actorName.frame.origin.x, _actorName.frame.origin.y + _actorName.frame.size.height + 30, 100, 30)];
+        self.subName = [[UILabel alloc]initWithFrame:CGRectMake(_actorName.frame.origin.x, self.actorName.frame.origin.y + self.actorName.frame.size.height + 30, 100, 30)];
         [_subName setText:@"角色"];
         [_subName setTextColor:UIColor.grayColor];
-        _subName.textAlignment = NSTextAlignmentCenter;
-        [self addSubview: _subName];
+        self.subName.textAlignment = NSTextAlignmentCenter;
+        [self addSubview: self.subName];
     }
     return self;
 }
 @end
 
+@interface ActorView ()<UITableViewDelegate, UITableViewDataSource>
 
+@end
 
 @implementation ActorView
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    _actorTableView = [[UITableView alloc]initWithFrame: self.bounds];
-    _actorTableView.dataSource = self;
-    _actorTableView.delegate   = self;
-    _actorTableView.backgroundColor = UIColor.lightGrayColor;
-    [self addSubview: _actorTableView];
+    self.actorTableView = [[UITableView alloc]initWithFrame: self.bounds];
+    self.actorTableView.dataSource = self;
+    self.actorTableView.delegate = self;
+    self.actorTableView.backgroundColor = UIColor.lightGrayColor;
+    [self addSubview: self.actorTableView];
     
     return self;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-     ActorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActorTableViewCell"];
-     cell = [[ActorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ActorTableViewCell"];
-    if (indexPath.row < [_actorData count]) {
+    ActorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: ACTOR_TABLEVIEW_CELL];
+    cell = [[ActorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: ACTOR_TABLEVIEW_CELL];
+    if (indexPath.row < [self.actorData count]) {
         struct ActorModel curActor;
-        [[_actorData objectAtIndex: indexPath.row] getValue:&curActor];
+        [[self.actorData objectAtIndex: indexPath.row] getValue:&curActor];
         cell.actorName.text = curActor.name;
         cell.subName.text = curActor.subname;
         [cell.photo setImage:[UIImage imageNamed:curActor.photo]];
@@ -71,7 +74,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_actorData count];
+    return [self.actorData count];
 }
 
 //点击单元格触发的事件

@@ -16,13 +16,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ActorTableViewCell: UITableViewCell
-@property(nonatomic ,strong) UILabel *actorName;
-@property(nonatomic ,strong) UILabel *subName;
-@property(nonatomic ,strong) UIImageView *photo;
+@property(nonatomic, strong) UILabel *actorName;
+@property(nonatomic, strong) UILabel *subName;
+@property(nonatomic, strong) UIImageView *photo;
 @end
 
 @interface ActorView : UIView
-@property(nonatomic ,strong) UITableView *actorTableView;
-@property(nonatomic ,strong) NSMutableArray *actorData;
+@property(nonatomic, strong) UITableView *actorTableView;
+@property(nonatomic, strong) NSMutableArray *actorData;
 @end
 

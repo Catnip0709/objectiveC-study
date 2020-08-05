@@ -11,12 +11,15 @@
 @class ViewModel;
 @class TopBtnView;
 @class ActorView;
+@class MovieView;
 
 @interface ViewController : UIViewController
 
-@property(nonatomic ,strong) TopBtnView *topBtnView;
-@property(nonatomic ,strong) ActorView *actorView;
-@property(nonatomic ,strong) ViewModel *viewModel;
+@property(nonatomic, strong) TopBtnView *topBtnView;
+@property(nonatomic, strong) MovieView *movieView;
+@property(nonatomic, strong) ActorView *actorView;
+
+@property(nonatomic, strong) ViewModel *viewModel;
 
 @end
 

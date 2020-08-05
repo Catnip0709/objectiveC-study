@@ -20,3 +20,10 @@ struct ActorModel{
     NSString *subname;
     NSString *photo;
 };
+
+struct MovieModel {
+    NSString *movieName;
+    NSString *movieTime;
+    NSString *moviePic;
+    NSMutableArray *actorData;
+};

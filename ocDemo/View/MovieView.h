@@ -15,6 +15,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@interface MovieCollectionViewCell: UICollectionViewCell
+@property(nonatomic, strong) UILabel *movieName;
+@property(nonatomic, strong) UILabel *movieTime;
+@property(nonatomic, strong) UIImageView *moviePic;
+@end
+
 @interface MovieView : UIView 
-@property(nonatomic ,strong) UICollectionView *cv;
+@property(nonatomic, strong) UICollectionView *movieCollectionView;
 @end

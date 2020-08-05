@@ -15,9 +15,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TopBtnView : UIView
-@property(nonatomic ,strong) UIButton *movieBtn;
-@property(nonatomic ,strong) UIButton *mallBtn;
-@property(nonatomic ,strong) UIButton *concertBtn;
+@property(nonatomic, strong) UIButton *movieBtn;
+@property(nonatomic, strong) UIButton *mallBtn;
+@property(atomic, strong) UIButton *concertBtn;
 -(void) pressMallBtn;
 -(void) pressEvent;
 -(void) initView;

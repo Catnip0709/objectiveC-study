@@ -20,7 +20,7 @@
 typedef void(^fetchDataBlock)(NSMutableArray*); // 回调函数定义
 
 @interface ViewModel : NSObject
-@property(nonatomic, strong) NSMutableArray *actorData;
+@property(nonatomic, strong) NSMutableArray *data;
 @property(nonatomic, strong) ViewController *delegate;
 @property(nonatomic, strong) fetchDataBlock myBlock;
 -(void) fetchData: (fetchDataBlock)block;
