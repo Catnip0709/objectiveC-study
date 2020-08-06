@@ -1,17 +1,17 @@
 //
-//  actorView.m
+//  pqqActorView.m
 //  ocDemo
 //
 //  Created by catnip on 2020/8/4.
 //  Copyright © 2020 catnip. All rights reserved.
 //
 
-#import "ActorView.h"
-#import "Model.h"
+#import "pqqActorView.h"
+#import "pqqModel.h"
 
-#define ACTOR_TABLEVIEW_CELL @"ActorTableViewCell"
+#define ACTOR_TABLEVIEW_CELL @"pqqActorTableViewCell"
 
-@implementation ActorTableViewCell
+@implementation pqqActorTableViewCell
 + (CGFloat)cellHeight {
     return 200;
 }
@@ -38,11 +38,11 @@
 }
 @end
 
-@interface ActorView ()<UITableViewDelegate, UITableViewDataSource>
+@interface pqqActorView ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
-@implementation ActorView
+@implementation pqqActorView
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -57,10 +57,10 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ActorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: ACTOR_TABLEVIEW_CELL];
-    cell = [[ActorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: ACTOR_TABLEVIEW_CELL];
+    pqqActorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: ACTOR_TABLEVIEW_CELL];
+    cell = [[pqqActorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: ACTOR_TABLEVIEW_CELL];
     if (indexPath.row < [self.actorData count]) {
-        ActorModel *curActor = [self.actorData objectAtIndex: indexPath.row];
+        pqqActorModel *curActor = [self.actorData objectAtIndex: indexPath.row];
         cell.actorName.text = curActor.name;
         cell.subName.text = curActor.subname;
         [cell.photo setImage:[UIImage imageNamed:curActor.photo]];
@@ -69,7 +69,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [ActorTableViewCell cellHeight];
+    return [pqqActorTableViewCell cellHeight];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -88,7 +88,9 @@
     if (_actorData != actorData) {
         _actorData = actorData;
     }
-    [self.actorTableView reloadData];
+    if ([NSThread isMainThread]) {
+        [self.actorTableView reloadData];
+    }
 }
 @end
 

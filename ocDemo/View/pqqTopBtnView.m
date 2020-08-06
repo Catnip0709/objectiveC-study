@@ -1,14 +1,14 @@
 //
-//  TopBtnView.m
+//  pqqTopBtnView.m
 //  ocDemo
 //
 //  Created by catnip on 2020/8/4.
 //  Copyright © 2020 catnip. All rights reserved.
 //
 
-#import "TopBtnView.h"
+#import "pqqTopBtnView.h"
 
-@implementation TopBtnView
+@implementation pqqTopBtnView
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

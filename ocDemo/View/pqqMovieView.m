@@ -1,5 +1,5 @@
 //
-//  movieView.m
+//  pqqMovieView.m
 //  ocDemo
 //
 //  Created by catnip on 2020/8/4.
@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "movieView.h"
-#import "Model.h"
+#import "pqqMovieView.h"
+#import "pqqModel.h"
 
-#define MOVIE_COLLECTIONVIEW_CELL @"MovieCollectionViewCell"
+#define MOVIE_COLLECTIONVIEW_CELL @"pqqMovieCollectionViewCell"
 
-@implementation MovieCollectionViewCell
+@implementation pqqMovieCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -39,7 +39,7 @@
 @end
 
 
-@implementation MovieLayout
+@implementation pqqMovieLayout
 
 - (instancetype)init {
     self = [super init];
@@ -71,20 +71,20 @@
 
 
 
-@interface MovieView ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface pqqMovieView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @end
 
-@implementation MovieView
+@implementation pqqMovieView
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    UICollectionViewFlowLayout* flowLayout = [[MovieLayout alloc] init];
+    UICollectionViewFlowLayout* flowLayout = [[pqqMovieLayout alloc] init];
     self.movieCollectionView = [[UICollectionView alloc] initWithFrame: CGRectMake(0,0,self.frame.size.width,self.frame.size.height) collectionViewLayout: flowLayout];
     
     self.movieCollectionView.dataSource = self;
     self.movieCollectionView.delegate = self;
-    [self.movieCollectionView registerClass:[MovieCollectionViewCell class] forCellWithReuseIdentifier: MOVIE_COLLECTIONVIEW_CELL];
+    [self.movieCollectionView registerClass:[pqqMovieCollectionViewCell class] forCellWithReuseIdentifier: MOVIE_COLLECTIONVIEW_CELL];
     self.movieCollectionView.backgroundColor = UIColor.whiteColor;
     [self addSubview: self.movieCollectionView];
     
@@ -97,9 +97,9 @@
 
 //每个cell展示的内容的具体实现
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    MovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: MOVIE_COLLECTIONVIEW_CELL forIndexPath: indexPath];
+    pqqMovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: MOVIE_COLLECTIONVIEW_CELL forIndexPath: indexPath];
     if(indexPath.row < [self.movieData count]) {
-        MovieModel *curMovie = [self.movieData objectAtIndex: indexPath.row];
+        pqqMovieModel *curMovie = [self.movieData objectAtIndex: indexPath.row];
         cell.movieName.text = curMovie.movieName;
         cell.movieTime.text = curMovie.movieTime;
         [cell.moviePic setImage:[UIImage imageNamed: curMovie.moviePic]];
@@ -124,7 +124,6 @@
     if(_movieData != movieData) {
         _movieData = movieData;
     }
-    [self.movieCollectionView reloadData];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {

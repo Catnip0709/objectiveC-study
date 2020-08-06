@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Model.h"
+#import "pqqModel.h"
 
-@implementation ActorModel
+@implementation pqqActorModel
 
 -(id) init: (NSString*) _name andSubName:(NSString*)_subname andPhoto:(NSString*) _photo {
     self.name = _name;
@@ -19,7 +19,7 @@
 }
 @end
 
-@implementation MovieModel
+@implementation pqqMovieModel
 
 -(id) init: (NSString*) _movieName andMovieTime:(NSString*) _movieTime andMoviePic:(NSString*) _moviePic andActorData: (NSArray*) _actorData {
     self.movieName = _movieName;

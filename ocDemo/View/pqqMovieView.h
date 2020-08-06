@@ -15,17 +15,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface MovieCollectionViewCell: UICollectionViewCell
+@interface pqqMovieCollectionViewCell: UICollectionViewCell
 @property(nonatomic, strong) UILabel *movieName;
 @property(nonatomic, strong) UILabel *movieTime;
 @property(nonatomic, strong) UIImageView *moviePic;
 @end
 
-@interface MovieLayout : UICollectionViewFlowLayout
+@interface pqqMovieLayout : UICollectionViewFlowLayout
 
 @end
 
-@interface MovieView : UIView 
+@interface pqqMovieView : UIView 
 @property(nonatomic, strong) UICollectionView *movieCollectionView;
 @property(nonatomic, copy) NSArray *movieData;
 @property(nonatomic) NSInteger selectedMovieId;
