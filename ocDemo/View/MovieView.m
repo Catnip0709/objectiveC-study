@@ -130,27 +130,25 @@
     }
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self scrollToSelected];
+}
+
+//Decelerating:减速
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self scrollToSelected];
+}
+
 - (void) scrollToSelected {
     float tempId = (self.movieCollectionView.contentOffset.x - 75) / 150;
     self.selectedMovieId = tempId < 0 ? 0 : ceil(tempId);
-    //位置变化，使被点击的电影到最中间
-    //flowLayout.sectionInset = UIEdgeInsetsMake(0, flowLayout.itemSize.width, 0, 0);
-    
+    //位置变化，使目的电影到最中间
+    [self.movieCollectionView scrollToItemAtIndexPath: [NSIndexPath indexPathForItem: self.selectedMovieId inSection: 0] atScrollPosition: (UICollectionViewScrollPositionCenteredHorizontally) animated: YES];
+    if(self.selectedMovieCellHandler) {
+        self.selectedMovieCellHandler(self.selectedMovieId);
+    }
 }
 /*
- func scrollToSelected() {
-     if self.collectionView.contentOffset.x <= 75 {
-         self.scrollSelectedIdx = 0
-     }
-     else if self.collectionView.contentOffset.x < 225 {
-         self.scrollSelectedIdx = 1
-     }
-     else if self.collectionView.contentOffset.x < 375 {
-         self.scrollSelectedIdx = 2
-     }
-     else if self.collectionView.contentOffset.x < 525 {
-         self.scrollSelectedIdx = 3
-     }
      self.collectionView.scrollToItem(at: IndexPath(row: scrollSelectedIdx, section: 0), at: .centeredHorizontally, animated: true)
      selectedCellHandler?(IndexPath(row: scrollSelectedIdx, section: 0))
  }
