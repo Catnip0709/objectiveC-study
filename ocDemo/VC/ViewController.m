@@ -18,21 +18,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.topBtnView = [[TopBtnView alloc]initWithFrame:CGRectMake(0,50, self.view.frame.size.width,25)];
-    self.movieView = [[MovieView alloc]initWithFrame: CGRectMake(0, self.topBtnView.frame.origin.y + self.topBtnView.frame.size.height + 20, self.view.frame.size.width, 300)];
-    self.actorView = [[ActorView alloc]initWithFrame:CGRectMake(0,_movieView.frame.origin.y + self.movieView.frame.size.height + 20, self.view.frame.size.width, 500)];
+    self.topBtnView = [[TopBtnView alloc] initWithFrame:CGRectMake(0,50, self.view.frame.size.width,25)];
+    self.movieView = [[MovieView alloc] initWithFrame: CGRectMake(0, self.topBtnView.frame.origin.y + self.topBtnView.frame.size.height + 20, self.view.frame.size.width, 300)];
+    self.actorView = [[ActorView alloc] initWithFrame:CGRectMake(0,_movieView.frame.origin.y + self.movieView.frame.size.height + 20, self.view.frame.size.width, 500)];
     
-    self.viewModel = [[ViewModel alloc]init];
-     [self.viewModel fetchData:^(NSMutableArray *data) {
+    self.viewModel = [[ViewModel alloc] init];
+     [self.viewModel fetchData:^(NSArray *data) {
          if(data) {
              self.movieView.movieData = data;
              MovieModel *firstMovie = [data objectAtIndex: 0];
              self.actorView.actorData = firstMovie.actorData;
              [self.movieView.movieCollectionView reloadData];
              [self.actorView.actorTableView reloadData];
-             NSLog(@"123");
          }
     }];
+    
+    // 实现MoiveView中的回调函数，当前movie改变时触发，使得ActorView的data改变
+    __weak typeof(self) weakSelf = self;
+    self.movieView.selectedMovieCellHandler = ^(NSIndexPath* index) {
+        MovieModel *curMovie = [weakSelf.movieView.movieData objectAtIndex: index.row];
+        weakSelf.actorView.actorData = curMovie.actorData;
+        [weakSelf.actorView.actorTableView reloadData];
+    };
     
     [self.view addSubview: self.topBtnView];
     [self.view addSubview: self.movieView];

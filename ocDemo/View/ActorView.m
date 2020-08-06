@@ -22,13 +22,13 @@
         self.photo.image = [UIImage imageNamed:@"yyqx.png"];
         [self addSubview:_photo];
         
-        self.actorName = [[UILabel alloc]initWithFrame:CGRectMake(_photo.frame.origin.x + self.photo.frame.size.width + 50, 60, 100, 30)];
+        self.actorName = [[UILabel alloc] initWithFrame:CGRectMake(_photo.frame.origin.x + self.photo.frame.size.width + 50, 60, 100, 30)];
         [_actorName setText:@"姓名"];
         [_actorName setTextColor:UIColor.blackColor];
         self.actorName.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_actorName];
         
-        self.subName = [[UILabel alloc]initWithFrame:CGRectMake(_actorName.frame.origin.x, self.actorName.frame.origin.y + self.actorName.frame.size.height + 30, 100, 30)];
+        self.subName = [[UILabel alloc] initWithFrame:CGRectMake(_actorName.frame.origin.x, self.actorName.frame.origin.y + self.actorName.frame.size.height + 30, 100, 30)];
         [_subName setText:@"角色"];
         [_subName setTextColor:UIColor.grayColor];
         self.subName.textAlignment = NSTextAlignmentCenter;
@@ -47,7 +47,7 @@
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    self.actorTableView = [[UITableView alloc]initWithFrame: self.bounds];
+    self.actorTableView = [[UITableView alloc] initWithFrame: self.bounds];
     self.actorTableView.dataSource = self;
     self.actorTableView.delegate = self;
     self.actorTableView.backgroundColor = UIColor.lightGrayColor;

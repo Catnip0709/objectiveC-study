@@ -23,6 +23,6 @@
 
 @interface ActorView : UIView
 @property(nonatomic, strong) UITableView *actorTableView;
-@property(nonatomic, strong) NSMutableArray *actorData;
+@property(nonatomic, strong) NSArray *actorData;
 @end
 

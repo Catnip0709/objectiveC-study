@@ -23,5 +23,6 @@
 
 @interface MovieView : UIView 
 @property(nonatomic, strong) UICollectionView *movieCollectionView;
-@property(nonatomic, strong) NSMutableArray *movieData;
+@property(nonatomic, strong) NSArray *movieData;
+@property(nonatomic, strong) void(^selectedMovieCellHandler)(NSIndexPath*); // 点击电影cell的回调
 @end

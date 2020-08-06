@@ -21,7 +21,7 @@
 
 @implementation MovieModel
 
--(id) init: (NSString*) _movieName andMovieTime:(NSString*) _movieTime andMoviePic:(NSString*) _moviePic andActorData: (NSMutableArray*) _actorData {
+-(id) init: (NSString*) _movieName andMovieTime:(NSString*) _movieTime andMoviePic:(NSString*) _moviePic andActorData: (NSArray*) _actorData {
     self.movieName = _movieName;
     self.movieTime = _movieTime;
     self.moviePic = _moviePic;

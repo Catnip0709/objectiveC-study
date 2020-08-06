@@ -26,6 +26,6 @@
 @property(nonatomic, strong) NSString *movieName;
 @property(nonatomic, strong) NSString *movieTime;
 @property(nonatomic, strong) NSString *moviePic;
-@property(nonatomic, strong) NSMutableArray *actorData;
--(id) init: (NSString*) _movieName andMovieTime:(NSString*) _movieTime andMoviePic:(NSString*) andMoviePic andActorData: (NSMutableArray*) _actorData;
+@property(nonatomic, strong) NSArray *actorData;
+-(id) init: (NSString*) _movieName andMovieTime:(NSString*) _movieTime andMoviePic:(NSString*) andMoviePic andActorData: (NSArray*) _actorData;
 @end
