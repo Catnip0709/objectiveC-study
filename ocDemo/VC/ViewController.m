@@ -20,7 +20,7 @@
     
     self.topBtnView = [[TopBtnView alloc] initWithFrame:CGRectMake(0,50, self.view.frame.size.width,25)];
     self.movieView = [[MovieView alloc] initWithFrame: CGRectMake(0, self.topBtnView.frame.origin.y + self.topBtnView.frame.size.height + 20, self.view.frame.size.width, 300)];
-    self.actorView = [[ActorView alloc] initWithFrame:CGRectMake(0,_movieView.frame.origin.y + self.movieView.frame.size.height + 20, self.view.frame.size.width, 500)];
+    self.actorView = [[ActorView alloc] initWithFrame:CGRectMake(0,_movieView.frame.origin.y + self.movieView.frame.size.height, self.view.frame.size.width, 500)];
     
     self.viewModel = [[ViewModel alloc] init];
      [self.viewModel fetchData:^(NSArray *data) {

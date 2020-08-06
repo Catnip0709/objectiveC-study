@@ -114,6 +114,10 @@
 //cell被选中时触发
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedMovieId = indexPath.row;
+    [self.movieCollectionView scrollToItemAtIndexPath: [NSIndexPath indexPathForItem: self.selectedMovieId inSection: 0] atScrollPosition: (UICollectionViewScrollPositionCenteredHorizontally) animated: YES];
+    if(self.selectedMovieCellHandler) {
+        self.selectedMovieCellHandler(self.selectedMovieId);
+    }
 }
 
 - (void)setMovieData:(NSArray *)movieData {
@@ -121,13 +125,6 @@
         _movieData = movieData;
     }
     [self.movieCollectionView reloadData];
-}
-
-- (void)setSelectedMovieId:(NSInteger)selectedMovieId {
-    _selectedMovieId = selectedMovieId;
-    if(self.selectedMovieCellHandler) {
-        self.selectedMovieCellHandler(selectedMovieId);
-    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -148,10 +145,6 @@
         self.selectedMovieCellHandler(self.selectedMovieId);
     }
 }
-/*
-     self.collectionView.scrollToItem(at: IndexPath(row: scrollSelectedIdx, section: 0), at: .centeredHorizontally, animated: true)
-     selectedCellHandler?(IndexPath(row: scrollSelectedIdx, section: 0))
- }
- */
+
 
 @end
