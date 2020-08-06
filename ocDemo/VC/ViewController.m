@@ -25,9 +25,11 @@
     self.viewModel = [[ViewModel alloc]init];
      [self.viewModel fetchData:^(NSMutableArray *data) {
          if(data) {
-             struct MovieModel firstMovie;
-             [[data objectAtIndex: 0] getValue:&firstMovie];
+             self.movieView.movieData = data;
+             MovieModel *firstMovie = [data objectAtIndex: 0];
              self.actorView.actorData = firstMovie.actorData;
+             [self.movieView.movieCollectionView reloadData];
+             [self.actorView.actorTableView reloadData];
              NSLog(@"123");
          }
     }];

@@ -23,4 +23,5 @@
 
 @interface MovieView : UIView 
 @property(nonatomic, strong) UICollectionView *movieCollectionView;
+@property(nonatomic, strong) NSMutableArray *movieData;
 @end

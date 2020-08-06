@@ -18,7 +18,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.photo = [[UIImageView alloc]initWithFrame:CGRectMake(20, 30, 140, 140)];
+        self.photo = [[UIImageView alloc] initWithFrame:CGRectMake(20, 30, 140, 140)];
         self.photo.image = [UIImage imageNamed:@"yyqx.png"];
         [self addSubview:_photo];
         
@@ -60,8 +60,7 @@
     ActorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: ACTOR_TABLEVIEW_CELL];
     cell = [[ActorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: ACTOR_TABLEVIEW_CELL];
     if (indexPath.row < [self.actorData count]) {
-        struct ActorModel curActor;
-        [[self.actorData objectAtIndex: indexPath.row] getValue:&curActor];
+        ActorModel *curActor = [self.actorData objectAtIndex: indexPath.row];
         cell.actorName.text = curActor.name;
         cell.subName.text = curActor.subname;
         [cell.photo setImage:[UIImage imageNamed:curActor.photo]];

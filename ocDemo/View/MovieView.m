@@ -65,9 +65,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     //注意单元格复用，注意identifier和之前注册时用的相同(@"cell")
     MovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: MOVIE_COLLECTIONVIEW_CELL forIndexPath:indexPath];
-    if(!cell) {
-        cell = [[MovieCollectionViewCell alloc] init];
-    }
+    
     return cell;
 }
 
