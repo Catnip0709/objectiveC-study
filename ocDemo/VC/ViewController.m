@@ -23,20 +23,23 @@
     self.actorView = [[ActorView alloc] initWithFrame:CGRectMake(0,_movieView.frame.origin.y + self.movieView.frame.size.height, self.view.frame.size.width, 500)];
     
     self.viewModel = [[ViewModel alloc] init];
-     [self.viewModel fetchData:^(NSArray *data) {
-         if(data) {
-             self.movieView.movieData = data;
-             MovieModel *firstMovie = [data objectAtIndex: 0];
-             self.actorView.actorData = firstMovie.actorData;
-         }
-    }];
     
-    // 实现MoiveView中的回调函数，当前movie改变时触发，使得ActorView的data改变
-    __weak typeof(self) weakSelf = self;
-    self.movieView.selectedMovieCellHandler = ^(NSInteger index) {
-        MovieModel *curMovie = [weakSelf.movieView.movieData objectAtIndex: index];
-        weakSelf.actorView.actorData = curMovie.actorData;
-    };
+     NSThread *thread = [[NSThread alloc] initWithBlock:^{
+        __weak typeof(self) weakSelf = self;
+         [self.viewModel fetchData:^(NSArray *data) {
+             if(data) {
+                 weakSelf.movieView.movieData = data;
+                 MovieModel *firstMovie = [data objectAtIndex: 0];
+                 weakSelf.actorView.actorData = firstMovie.actorData;
+             }
+        }];
+        // 实现MoiveView中的回调函数，当前movie改变时触发，使得ActorView的data改变
+        self.movieView.selectedMovieCellHandler = ^(NSInteger index) {
+            MovieModel *curMovie = [weakSelf.movieView.movieData objectAtIndex: index];
+            weakSelf.actorView.actorData = curMovie.actorData;
+        };
+     }];
+    [thread start];
     
     [self.view addSubview: self.topBtnView];
     [self.view addSubview: self.movieView];
