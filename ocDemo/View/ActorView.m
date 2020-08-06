@@ -80,6 +80,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"你点了一个cell");
 }
+
+// set方法默认写法
+// self.和_的区别：使用self.a会调用getter/setter方法，而_a并不会调用getter/setter方法,它是直接访问实例变量并赋值。
+// 如果这里使用self.actorData，则不断循环调用set方法导致crush
+-(void)setActorData:(NSArray *)actorData {
+    if (_actorData != actorData) {
+        _actorData = actorData;
+    }
+    [self.actorTableView reloadData];
+}
 @end
 
 

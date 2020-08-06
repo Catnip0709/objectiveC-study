@@ -21,8 +21,15 @@
 @property(nonatomic, strong) UIImageView *moviePic;
 @end
 
+@interface MovieLayout : UICollectionViewFlowLayout
+
+@end
+
 @interface MovieView : UIView 
 @property(nonatomic, strong) UICollectionView *movieCollectionView;
-@property(nonatomic, strong) NSArray *movieData;
-@property(nonatomic, strong) void(^selectedMovieCellHandler)(NSIndexPath*); // 点击电影cell的回调
+@property(nonatomic, copy) NSArray *movieData;
+@property(nonatomic) NSInteger selectedMovieId;
+@property(nonatomic, strong) void(^selectedMovieCellHandler)(NSInteger); // 点击电影cell的回调
+
+- (void) scrollToSelected;
 @end

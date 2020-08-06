@@ -38,6 +38,39 @@
 
 @end
 
+
+@implementation MovieLayout
+
+- (instancetype)init {
+    self = [super init];
+    self.itemSize = CGSizeMake(140,190);
+    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    [self setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    self.sectionInset = UIEdgeInsetsMake(0, self.itemSize.width, 0, self.itemSize.width); //使得一开始firstMovie在最中间
+    
+    return self;
+}
+
+-(NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSArray<__kindof UICollectionViewLayoutAttributes *> *array = [super layoutAttributesForElementsInRect: rect];
+    //计算CollectionView最中心的x值
+    double cenX = (self.collectionView.contentOffset.x) + self.collectionView.frame.size.width / 2;
+    for(int i = 0; i < [array count]; i++) {
+        double delta = fabs(array[i].center.x - cenX); //根据间距值计算cell的缩放的比例
+        double scale = 1 - delta/self.collectionView.frame.size.width;//这里scale 必须要 小于1
+        array[i].transform = CGAffineTransformMakeScale(scale, scale);
+    }
+    return array;
+}
+-(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return YES;
+}
+
+@end
+
+
+
+
 @interface MovieView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @end
 
@@ -46,10 +79,7 @@
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake(140,190);
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    UICollectionViewFlowLayout* flowLayout = [[MovieLayout alloc] init];
     self.movieCollectionView = [[UICollectionView alloc] initWithFrame: CGRectMake(0,0,self.frame.size.width,self.frame.size.height) collectionViewLayout: flowLayout];
     
     self.movieCollectionView.dataSource = self;
@@ -57,6 +87,10 @@
     [self.movieCollectionView registerClass:[MovieCollectionViewCell class] forCellWithReuseIdentifier: MOVIE_COLLECTIONVIEW_CELL];
     self.movieCollectionView.backgroundColor = UIColor.whiteColor;
     [self addSubview: self.movieCollectionView];
+    
+    if(self.movieData) {
+        self.selectedMovieId = 0;
+    }
     
     return self;
 }
@@ -79,9 +113,47 @@
 
 //cell被选中时触发
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedMovieId = indexPath.row;
+}
+
+- (void)setMovieData:(NSArray *)movieData {
+    if(_movieData != movieData) {
+        _movieData = movieData;
+    }
+    [self.movieCollectionView reloadData];
+}
+
+- (void)setSelectedMovieId:(NSInteger)selectedMovieId {
+    _selectedMovieId = selectedMovieId;
     if(self.selectedMovieCellHandler) {
-        self.selectedMovieCellHandler(indexPath);
+        self.selectedMovieCellHandler(selectedMovieId);
     }
 }
+
+- (void) scrollToSelected {
+    float tempId = (self.movieCollectionView.contentOffset.x - 75) / 150;
+    self.selectedMovieId = tempId < 0 ? 0 : ceil(tempId);
+    //位置变化，使被点击的电影到最中间
+    //flowLayout.sectionInset = UIEdgeInsetsMake(0, flowLayout.itemSize.width, 0, 0);
+    
+}
+/*
+ func scrollToSelected() {
+     if self.collectionView.contentOffset.x <= 75 {
+         self.scrollSelectedIdx = 0
+     }
+     else if self.collectionView.contentOffset.x < 225 {
+         self.scrollSelectedIdx = 1
+     }
+     else if self.collectionView.contentOffset.x < 375 {
+         self.scrollSelectedIdx = 2
+     }
+     else if self.collectionView.contentOffset.x < 525 {
+         self.scrollSelectedIdx = 3
+     }
+     self.collectionView.scrollToItem(at: IndexPath(row: scrollSelectedIdx, section: 0), at: .centeredHorizontally, animated: true)
+     selectedCellHandler?(IndexPath(row: scrollSelectedIdx, section: 0))
+ }
+ */
 
 @end

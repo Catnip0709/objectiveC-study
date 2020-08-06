@@ -28,17 +28,14 @@
              self.movieView.movieData = data;
              MovieModel *firstMovie = [data objectAtIndex: 0];
              self.actorView.actorData = firstMovie.actorData;
-             [self.movieView.movieCollectionView reloadData];
-             [self.actorView.actorTableView reloadData];
          }
     }];
     
     // 实现MoiveView中的回调函数，当前movie改变时触发，使得ActorView的data改变
     __weak typeof(self) weakSelf = self;
-    self.movieView.selectedMovieCellHandler = ^(NSIndexPath* index) {
-        MovieModel *curMovie = [weakSelf.movieView.movieData objectAtIndex: index.row];
+    self.movieView.selectedMovieCellHandler = ^(NSInteger index) {
+        MovieModel *curMovie = [weakSelf.movieView.movieData objectAtIndex: index];
         weakSelf.actorView.actorData = curMovie.actorData;
-        [weakSelf.actorView.actorTableView reloadData];
     };
     
     [self.view addSubview: self.topBtnView];
