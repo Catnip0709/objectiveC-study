@@ -41,7 +41,7 @@
     //use gcd
     __weak typeof(self)weakSelf = self;
     [weakSelf.PQQViewModel fetchData:^(NSArray *data){
-         dispatch_async(dispatch_get_main_queue(), ^{
+         dispatch_async(dispatch_get_main_queue(), ^{ // async异步，sync同步
              if (data){
                  weakSelf.PQQMovieView.movieData = data;
                  PQQMovieModel *firstMovie = [data objectAtIndex: 0];

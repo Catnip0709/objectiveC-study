@@ -12,32 +12,34 @@
 #import <AFNetworking.h>
 #import <SDWebImage.h>
 
-#define ACTOR1_PHOTO_URL @"https://tvax4.sinaimg.cn/large/007JuAjBgy1ghia55yuf5j303y03y0t7.jpg"
-#define ACTOR2_PHOTO_URL @"https://tvax4.sinaimg.cn/large/007JuAjBgy1ghibh5p5jnj30420423zf.jpg"
-#define ACTOR3_PHOTO_URL @"https://tva3.sinaimg.cn/large/007JuAjBgy1ghibhjnjndj302r03n3ye.jpg"
-#define ACTOR4_PHOTO_URL @"https://tvax2.sinaimg.cn/large/007JuAjBgy1ghibhy7nqhj302t03ldfq.jpg"
-#define MOVIE1_PIC @"https://tvax3.sinaimg.cn/large/007JuAjBgy1ghibla48iwj30ew0ku40d.jpg"
-#define MOVIE2_PIC @"https://tva1.sinaimg.cn/large/007JuAjBgy1ghiblu3au6j30dd0kuab7.jpg"
-
 @implementation PQQViewModel
 
+#define SERVER_IP @"http://192.168.64.2/"
+
 - (void)fetchData:(fetchDataBlock)block{
-    PQQActorModel *actor1 = [[PQQActorModel alloc] init: @"易烊千玺" andSubName:@"1111" andPhoto:ACTOR1_PHOTO_URL];
-    PQQActorModel *actor2 = [[PQQActorModel alloc] init: @"周冬雨" andSubName:@"2222" andPhoto:ACTOR2_PHOTO_URL];
-    NSArray *movie1Actor = [NSArray arrayWithObjects: actor1, actor1, actor2, actor2, nil]; //nil表示数组赋值结束
-    PQQMovieModel *movie1 = [[PQQMovieModel alloc] init: @"少年的你" andMovieTime:@"2019-10-25" andMoviePic:MOVIE1_PIC andActorData: movie1Actor];
-
-    PQQActorModel *actor3 = [[PQQActorModel alloc] init: @"施瓦辛格" andSubName:@"3333" andPhoto:ACTOR3_PHOTO_URL];
-    PQQActorModel *actor4 = [[PQQActorModel alloc] init: @"琳达" andSubName:@"4444" andPhoto:ACTOR4_PHOTO_URL];
-    NSArray *movie2Actor = [NSArray arrayWithObjects: actor3, actor4, actor3, actor4, nil]; //nil表示数组赋值结束
-    PQQMovieModel *movie2 = [[PQQMovieModel alloc] init: @"终结者" andMovieTime:@"2019-11-01" andMoviePic:MOVIE2_PIC andActorData: movie2Actor];
-
-    self.data = [NSArray arrayWithObjects: movie1, movie2, movie1, movie2, nil];
-
-    self.myBlock = block;
-    if (self.myBlock){
-        self.myBlock([self.data copy]);
-    }
+    AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
+    [manager GET:SERVER_IP parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //太多hardcode，但由于是NSArray，暂时没想到好办法
+        
+        PQQActorModel *actor1 = [[PQQActorModel alloc] init: responseObject[0][@"actorData"][0][@"name"] andSubName:responseObject[0][@"actorData"][0][@"subname"] andPhoto:responseObject[0][@"actorData"][0][@"photo"]];
+        PQQActorModel *actor2 = [[PQQActorModel alloc] init: responseObject[0][@"actorData"][1][@"name"] andSubName:responseObject[0][@"actorData"][1][@"subname"] andPhoto:responseObject[0][@"actorData"][1][@"photo"]];
+        NSArray *movie1Actor = [NSArray arrayWithObjects: actor1, actor1, actor2, actor2, nil];
+        PQQMovieModel *movie1 = [[PQQMovieModel alloc] init: responseObject[0][@"movieName"] andMovieTime:responseObject[0][@"movieTime"] andMoviePic:responseObject[0][@"moviePic"] andActorData: movie1Actor];
+        
+        PQQActorModel *actor3 = [[PQQActorModel alloc] init: responseObject[1][@"actorData"][0][@"name"] andSubName:responseObject[1][@"actorData"][0][@"subname"] andPhoto:responseObject[1][@"actorData"][0][@"photo"]];
+        PQQActorModel *actor4 = [[PQQActorModel alloc] init: responseObject[1][@"actorData"][1][@"name"] andSubName:responseObject[1][@"actorData"][1][@"subname"] andPhoto:responseObject[1][@"actorData"][1][@"photo"]];
+        NSArray *movie2Actor = [NSArray arrayWithObjects: actor3, actor4, actor3, actor4, nil];
+        PQQMovieModel *movie2 = [[PQQMovieModel alloc] init: responseObject[1][@"movieName"] andMovieTime:responseObject[1][@"movieTime"] andMoviePic:responseObject[1][@"moviePic"] andActorData: movie2Actor];
+        
+        self.data = [NSArray arrayWithObjects: movie1, movie2, movie1, movie2, nil];
+        self.myBlock = block;
+        if (self.myBlock){
+            self.myBlock([self.data copy]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"network err");
+    }];
 }
 
 @end
