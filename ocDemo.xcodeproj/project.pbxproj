@@ -9,18 +9,18 @@
 /* Begin PBXBuildFile section */
 		2B54340224D9128B009FE983 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54340124D9128B009FE983 /* AppDelegate.m */; };
 		2B54340524D9128B009FE983 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54340424D9128B009FE983 /* SceneDelegate.m */; };
-		2B54340824D9128B009FE983 /* pqqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54340724D9128B009FE983 /* pqqViewController.m */; };
+		2B54340824D9128B009FE983 /* PQQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54340724D9128B009FE983 /* PQQViewController.m */; };
 		2B54340B24D9128B009FE983 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B54340924D9128B009FE983 /* Main.storyboard */; };
 		2B54340D24D9128D009FE983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B54340C24D9128D009FE983 /* Assets.xcassets */; };
 		2B54341024D9128D009FE983 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B54340E24D9128D009FE983 /* LaunchScreen.storyboard */; };
 		2B54341324D9128D009FE983 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54341224D9128D009FE983 /* main.m */; };
 		2B54341D24D9128D009FE983 /* ocDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54341C24D9128D009FE983 /* ocDemoTests.m */; };
 		2B54342824D9128D009FE983 /* ocDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B54342724D9128D009FE983 /* ocDemoUITests.m */; };
-		2B841A4924D93725006292D6 /* pqqTopBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B841A4824D93725006292D6 /* pqqTopBtnView.m */; };
-		2B8426B724D95A44006292D6 /* pqqMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426B624D95A44006292D6 /* pqqMovieView.m */; };
-		2B8426BA24D95B74006292D6 /* pqqActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426B924D95B74006292D6 /* pqqActorView.m */; };
-		2B8426BF24D9984F006292D6 /* pqqViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426BE24D9984F006292D6 /* pqqViewModel.m */; };
-		2B8426C424DBB70A006292D6 /* pqqModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426C324DBB70A006292D6 /* pqqModel.m */; };
+		2B841A4924D93725006292D6 /* PQQTopBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B841A4824D93725006292D6 /* PQQTopBtnView.m */; };
+		2B8426B724D95A44006292D6 /* PQQMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426B624D95A44006292D6 /* PQQMovieView.m */; };
+		2B8426BA24D95B74006292D6 /* PQQActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426B924D95B74006292D6 /* PQQActorView.m */; };
+		2B8426BF24D9984F006292D6 /* PQQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426BE24D9984F006292D6 /* PQQViewModel.m */; };
+		2B8426C424DBB70A006292D6 /* PQQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8426C324DBB70A006292D6 /* PQQModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,8 @@
 		2B54340124D9128B009FE983 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2B54340324D9128B009FE983 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		2B54340424D9128B009FE983 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		2B54340624D9128B009FE983 /* pqqViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pqqViewController.h; sourceTree = "<group>"; };
-		2B54340724D9128B009FE983 /* pqqViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pqqViewController.m; sourceTree = "<group>"; };
+		2B54340624D9128B009FE983 /* PQQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQQViewController.h; sourceTree = "<group>"; };
+		2B54340724D9128B009FE983 /* PQQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQQViewController.m; sourceTree = "<group>"; };
 		2B54340A24D9128B009FE983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B54340C24D9128D009FE983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B54340F24D9128D009FE983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,16 +59,16 @@
 		2B54342324D9128D009FE983 /* ocDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ocDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B54342724D9128D009FE983 /* ocDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ocDemoUITests.m; sourceTree = "<group>"; };
 		2B54342924D9128D009FE983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B841A4724D93699006292D6 /* pqqTopBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pqqTopBtnView.h; sourceTree = "<group>"; };
-		2B841A4824D93725006292D6 /* pqqTopBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pqqTopBtnView.m; sourceTree = "<group>"; };
-		2B8426B524D95A31006292D6 /* pqqMovieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pqqMovieView.h; sourceTree = "<group>"; };
-		2B8426B624D95A44006292D6 /* pqqMovieView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pqqMovieView.m; sourceTree = "<group>"; };
-		2B8426B824D95B65006292D6 /* pqqActorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pqqActorView.h; sourceTree = "<group>"; };
-		2B8426B924D95B74006292D6 /* pqqActorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pqqActorView.m; sourceTree = "<group>"; };
-		2B8426BC24D995D0006292D6 /* pqqModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pqqModel.h; sourceTree = "<group>"; };
-		2B8426BD24D996FA006292D6 /* pqqViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pqqViewModel.h; sourceTree = "<group>"; };
-		2B8426BE24D9984F006292D6 /* pqqViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pqqViewModel.m; sourceTree = "<group>"; };
-		2B8426C324DBB70A006292D6 /* pqqModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pqqModel.m; sourceTree = "<group>"; };
+		2B841A4724D93699006292D6 /* PQQTopBtnView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQQTopBtnView.h; sourceTree = "<group>"; };
+		2B841A4824D93725006292D6 /* PQQTopBtnView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQQTopBtnView.m; sourceTree = "<group>"; };
+		2B8426B524D95A31006292D6 /* PQQMovieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQQMovieView.h; sourceTree = "<group>"; };
+		2B8426B624D95A44006292D6 /* PQQMovieView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQQMovieView.m; sourceTree = "<group>"; };
+		2B8426B824D95B65006292D6 /* PQQActorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQQActorView.h; sourceTree = "<group>"; };
+		2B8426B924D95B74006292D6 /* PQQActorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQQActorView.m; sourceTree = "<group>"; };
+		2B8426BC24D995D0006292D6 /* PQQModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQQModel.h; sourceTree = "<group>"; };
+		2B8426BD24D996FA006292D6 /* PQQViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQQViewModel.h; sourceTree = "<group>"; };
+		2B8426BE24D9984F006292D6 /* PQQViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQQViewModel.m; sourceTree = "<group>"; };
+		2B8426C324DBB70A006292D6 /* PQQModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQQModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +156,8 @@
 		2B54343524D93618009FE983 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				2B54340624D9128B009FE983 /* pqqViewController.h */,
-				2B54340724D9128B009FE983 /* pqqViewController.m */,
+				2B54340624D9128B009FE983 /* PQQViewController.h */,
+				2B54340724D9128B009FE983 /* PQQViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -165,12 +165,12 @@
 		2B54343624D93629009FE983 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2B841A4724D93699006292D6 /* pqqTopBtnView.h */,
-				2B841A4824D93725006292D6 /* pqqTopBtnView.m */,
-				2B8426B524D95A31006292D6 /* pqqMovieView.h */,
-				2B8426B624D95A44006292D6 /* pqqMovieView.m */,
-				2B8426B924D95B74006292D6 /* pqqActorView.m */,
-				2B8426B824D95B65006292D6 /* pqqActorView.h */,
+				2B841A4724D93699006292D6 /* PQQTopBtnView.h */,
+				2B841A4824D93725006292D6 /* PQQTopBtnView.m */,
+				2B8426B524D95A31006292D6 /* PQQMovieView.h */,
+				2B8426B624D95A44006292D6 /* PQQMovieView.m */,
+				2B8426B924D95B74006292D6 /* PQQActorView.m */,
+				2B8426B824D95B65006292D6 /* PQQActorView.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,10 +178,10 @@
 		2B8426BB24D99599006292D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2B8426BC24D995D0006292D6 /* pqqModel.h */,
-				2B8426BD24D996FA006292D6 /* pqqViewModel.h */,
-				2B8426BE24D9984F006292D6 /* pqqViewModel.m */,
-				2B8426C324DBB70A006292D6 /* pqqModel.m */,
+				2B8426BC24D995D0006292D6 /* PQQModel.h */,
+				2B8426BD24D996FA006292D6 /* PQQViewModel.h */,
+				2B8426BE24D9984F006292D6 /* PQQViewModel.m */,
+				2B8426C324DBB70A006292D6 /* PQQModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,14 +316,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B54340824D9128B009FE983 /* pqqViewController.m in Sources */,
-				2B8426BA24D95B74006292D6 /* pqqActorView.m in Sources */,
-				2B8426BF24D9984F006292D6 /* pqqViewModel.m in Sources */,
-				2B8426C424DBB70A006292D6 /* pqqModel.m in Sources */,
+				2B54340824D9128B009FE983 /* PQQViewController.m in Sources */,
+				2B8426BA24D95B74006292D6 /* PQQActorView.m in Sources */,
+				2B8426BF24D9984F006292D6 /* PQQViewModel.m in Sources */,
+				2B8426C424DBB70A006292D6 /* PQQModel.m in Sources */,
 				2B54340224D9128B009FE983 /* AppDelegate.m in Sources */,
 				2B54341324D9128D009FE983 /* main.m in Sources */,
-				2B8426B724D95A44006292D6 /* pqqMovieView.m in Sources */,
-				2B841A4924D93725006292D6 /* pqqTopBtnView.m in Sources */,
+				2B8426B724D95A44006292D6 /* PQQMovieView.m in Sources */,
+				2B841A4924D93725006292D6 /* PQQTopBtnView.m in Sources */,
 				2B54340524D9128B009FE983 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
