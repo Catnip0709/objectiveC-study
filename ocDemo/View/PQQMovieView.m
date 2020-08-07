@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PQQMovieView.h"
 #import "PQQModel.h"
+#import <SDWebImage.h>
 
 #define MOVIE_COLLECTIONVIEW_CELL @"PQQMovieCollectionViewCell"
 #define MOVIE_PIC_RECT CGRectMake(0,0,120,150)
@@ -105,7 +106,7 @@
         PQQMovieModel *curMovie = [self.movieData objectAtIndex: indexPath.row];
         cell.movieName.text = curMovie.movieName;
         cell.movieTime.text = curMovie.movieTime;
-        [cell.moviePic setImage:[UIImage imageNamed: curMovie.moviePic]];
+        [cell.moviePic sd_setImageWithURL:[NSURL URLWithString:curMovie.moviePic]];
     }
     return cell;
 }

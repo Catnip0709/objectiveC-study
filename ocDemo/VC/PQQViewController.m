@@ -40,21 +40,22 @@
     
     //use gcd
     __weak typeof(self)weakSelf = self;
-         [weakSelf.PQQViewModel fetchData:^(NSArray *data){
-             dispatch_async(dispatch_get_main_queue(), ^{
-                     if (data){
-                         weakSelf.PQQMovieView.movieData = data;
-                         PQQMovieModel *firstMovie = [data objectAtIndex: 0];
-                         weakSelf.PQQActorView.actorData = firstMovie.actorData;
-                     }
-                 });
-
-      }];
+    [weakSelf.PQQViewModel fetchData:^(NSArray *data){
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if (data){
+                 weakSelf.PQQMovieView.movieData = data;
+                 PQQMovieModel *firstMovie = [data objectAtIndex: 0];
+                 weakSelf.PQQActorView.actorData = firstMovie.actorData;
+             }
+         });
+    }];
         
-        //实现MoiveView中的回调函数，当前movie改变时触发，使得PQQActorView的data改变
-        weakSelf.PQQMovieView.selectedMovieCellHandler = ^(NSInteger index){
+    //实现MoiveView中的回调函数，当前movie改变时触发，使得PQQActorView的data改变
+    weakSelf.PQQMovieView.selectedMovieCellHandler = ^(NSInteger index){
+        dispatch_async(dispatch_get_main_queue(), ^{
             PQQMovieModel *curMovie = [weakSelf.PQQMovieView.movieData objectAtIndex: index];
             weakSelf.PQQActorView.actorData = curMovie.actorData;
-        };
+        });
+    };
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "PQQActorView.h"
 #import "PQQModel.h"
+#import <SDWebImage.h>
 
 #define ACTOR_TABLEVIEW_CELL @"PQQActorTableViewCell"
 #define CELL_HEIGHT 200
@@ -71,7 +72,7 @@
         PQQActorModel *curActor = [self.actorData objectAtIndex: indexPath.row];
         cell.actorName.text = curActor.name;
         cell.subName.text = curActor.subname;
-        [cell.photo setImage:[UIImage imageNamed:curActor.photo]];
+        [cell.photo sd_setImageWithURL:[NSURL URLWithString:curActor.photo]];
     }
     
     return cell;
