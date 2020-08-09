@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface PQQActorTableViewCell: UITableViewCell
+@interface PQQActorTableViewCell : UITableViewCell
 @property (nonatomic, strong) UILabel *actorName;
 @property (nonatomic, strong) UILabel *subName;
 @property (nonatomic, strong) UIImageView *photo;

@@ -22,7 +22,7 @@
 - (id)init:(NSString *)name subName:(NSString *)subname photo:(NSString *)photo;
 @end
 
-@interface PQQMovieModel: NSObject
+@interface PQQMovieModel : NSObject
 @property (nonatomic, strong) NSString *movieName;
 @property (nonatomic, strong) NSString *movieTime;
 @property (nonatomic, strong) NSString *moviePic;

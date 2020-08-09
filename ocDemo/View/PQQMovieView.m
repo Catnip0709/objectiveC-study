@@ -129,6 +129,7 @@
     if(self.selectedMovieCellHandler){
         self.selectedMovieCellHandler(self.selectedMovieId);
     }
+    [self.movieCollectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {

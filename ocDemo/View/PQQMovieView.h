@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface PQQMovieCollectionViewCell: UICollectionViewCell
+@interface PQQMovieCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UILabel *movieName;
 @property (nonatomic, strong) UILabel *movieTime;
 @property (nonatomic, strong) UIImageView *moviePic;

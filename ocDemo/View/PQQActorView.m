@@ -51,7 +51,6 @@
 @end
 
 @interface PQQActorView ()<UITableViewDelegate, UITableViewDataSource>
-
 @end
 
 @implementation PQQActorView
@@ -92,7 +91,10 @@
 
 //点击单元格触发的事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"你点了一个cell");
+    
+    PQQActorTableViewCell *cell = (PQQActorTableViewCell *)[self tableView:self.actorTableView cellForRowAtIndexPath:indexPath];
+    [self.actorTableView deselectRowAtIndexPath:indexPath animated:YES]; //使背景颜色变回白色
+    NSLog(@"%@", cell.actorName.text);
 }
 
 // set方法默认写法
