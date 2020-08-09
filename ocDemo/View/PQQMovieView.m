@@ -76,7 +76,11 @@
 
 @end
 
+
+// extension：在编译期，和.h文件中的@interface和@implementation文件一起形成一个完整的类
+// 一般用来隐藏一个类的私有信息，无法为一个系统的类或者只暴露.h文件的类添加extension
 @interface PQQMovieView ()
+
 @property (nonatomic, strong) UICollectionView *movieCollectionView;
 @property (nonatomic, assign) NSInteger selectedMovieId;
 
@@ -113,7 +117,7 @@
         PQQMovieModel *curMovie = [self.movieData objectAtIndex: indexPath.row];
         cell.movieName.text = curMovie.movieName;
         cell.movieTime.text = curMovie.movieTime;
-        [cell.moviePic sd_setImageWithURL:[NSURL URLWithString:curMovie.moviePic]];
+    [cell.moviePic sd_setImageWithURL:[NSURL URLWithString:curMovie.moviePic] placeholderImage:[UIImage imageNamed:@"zdy.jpg"]];
 //    }
     return cell;
 }
