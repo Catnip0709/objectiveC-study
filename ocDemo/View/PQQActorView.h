@@ -22,9 +22,7 @@
 @end
 
 @interface PQQActorView : UIView
-@property (nonatomic, strong) UITableView *actorTableView;
-@property (nonatomic, copy)NSArray *actorData;
+@property (nonatomic, copy) NSArray *actorData;
 //不把Data设置为atomic的原因：atomic只会对该属性的Getter和Setter方法上锁，在别的方法里面对数据进行操作无法保护属性，同时atomic太耗性能，所以在实际开发中一般不使用atomic来修饰变量
-
 @end
 

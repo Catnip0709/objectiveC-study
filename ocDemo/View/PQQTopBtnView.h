@@ -15,9 +15,4 @@
 #import <UIKit/UIKit.h>
 
 @interface PQQTopBtnView : UIView
-- (void)pressMallBtn;
-- (void)pressEvent;
-- (void)initView;
-- (void)configButton:(UIButton *)btn title:(NSString *)title frame:(CGRect)frame;
-- (void)pressConfig:(UIButton *)selectedBtn otherBtn1:(UIButton *)otherBtn1 otherBtn2:(UIButton *)otherBtn2;
 @end

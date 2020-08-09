@@ -25,11 +25,7 @@
 @end
 
 @interface PQQMovieView : UIView
-@property (nonatomic, strong) UICollectionView *movieCollectionView;
 @property (nonatomic, copy) NSArray *movieData;
-@property (nonatomic, assign) NSInteger selectedMovieId;
 @property (nonatomic, copy) void(^selectedMovieCellHandler)(NSInteger); // 点击电影cell的回调
-
-- (void)scrollToSelected;
 
 @end

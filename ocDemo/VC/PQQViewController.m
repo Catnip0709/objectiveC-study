@@ -18,10 +18,10 @@
 #define ACTOR_VIEW_RECT CGRectMake(0,_PQQMovieView.frame.origin.y + self.PQQMovieView.frame.size.height, self.view.frame.size.width, 500)
 
 @interface PQQViewController ()
-@property (nonatomic, strong)PQQTopBtnView *PQQTopBtnView;
-@property (nonatomic, strong)PQQMovieView *PQQMovieView;
-@property (nonatomic, strong)PQQActorView *PQQActorView;
-@property (nonatomic, strong)PQQViewModel *PQQViewModel;
+@property (nonatomic, strong) PQQTopBtnView *PQQTopBtnView;
+@property (nonatomic, strong) PQQMovieView *PQQMovieView;
+@property (nonatomic, strong) PQQActorView *PQQActorView;
+@property (nonatomic, strong) PQQViewModel *PQQViewModel;
 @end
 
 @implementation PQQViewController: UIViewController

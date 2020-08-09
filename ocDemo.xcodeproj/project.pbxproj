@@ -176,8 +176,8 @@
 				2B841A4824D93725006292D6 /* PQQTopBtnView.m */,
 				2B8426B524D95A31006292D6 /* PQQMovieView.h */,
 				2B8426B624D95A44006292D6 /* PQQMovieView.m */,
-				2B8426B924D95B74006292D6 /* PQQActorView.m */,
 				2B8426B824D95B65006292D6 /* PQQActorView.h */,
+				2B8426B924D95B74006292D6 /* PQQActorView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,9 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				2B8426BC24D995D0006292D6 /* PQQModel.h */,
+				2B8426C324DBB70A006292D6 /* PQQModel.m */,
 				2B8426BD24D996FA006292D6 /* PQQViewModel.h */,
 				2B8426BE24D9984F006292D6 /* PQQViewModel.m */,
-				2B8426C324DBB70A006292D6 /* PQQModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,7 +207,6 @@
 				1630710D6FA3DA5FB0C68FFC /* Pods-ocDemo.debug.xcconfig */,
 				37C35623DD64B91A5AC08128 /* Pods-ocDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

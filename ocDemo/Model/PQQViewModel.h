@@ -17,12 +17,11 @@
 
 @class PQQViewController;
 
-typedef void(^fetchDataBlock)(NSArray *); // 回调函数定义
+typedef void(^FetchDataBlock)(NSArray *); // 回调函数定义
 
 @interface PQQViewModel : NSObject
-@property (nonatomic, strong)NSArray *data;
-@property (nonatomic, weak)PQQViewController *delegate;
-@property (nonatomic, copy)fetchDataBlock myBlock;
-- (void)fetchData: (fetchDataBlock)block;
+@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, weak) PQQViewController *delegate;
+- (void)fetchData:(FetchDataBlock)block;
 @end
 

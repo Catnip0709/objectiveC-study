@@ -16,16 +16,16 @@
 #import <UIKit/UIKit.h>
 
 @interface PQQActorModel : NSObject
-@property (nonatomic, strong)NSString *name;
-@property (nonatomic, strong)NSString *subname;
-@property (nonatomic, strong)NSString *photo;
-- (id)init:(NSString *)name andSubName:(NSString *)subname andPhoto:(NSString *)photo;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *subname;
+@property (nonatomic, strong) NSString *photo;
+- (id)init:(NSString *)name subName:(NSString *)subname photo:(NSString *)photo;
 @end
 
 @interface PQQMovieModel: NSObject
-@property (nonatomic, strong)NSString *movieName;
-@property (nonatomic, strong)NSString *movieTime;
-@property (nonatomic, strong)NSString *moviePic;
-@property (nonatomic, strong)NSArray *actorData;
-- (id)init:(NSString *)movieName andMovieTime:(NSString *)movieTime andMoviePic:(NSString *)andMoviePic andActorData: (NSArray *)actorData;
+@property (nonatomic, strong) NSString *movieName;
+@property (nonatomic, strong) NSString *movieTime;
+@property (nonatomic, strong) NSString *moviePic;
+@property (nonatomic, strong) NSArray *actorData;
+- (id)init:(NSString *)movieName movieTime:(NSString *)movieTime moviePic:(NSString *)andMoviePic actorData: (NSArray *)actorData;
 @end

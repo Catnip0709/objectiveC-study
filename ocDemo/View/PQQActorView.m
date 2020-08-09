@@ -46,6 +46,10 @@
 }
 @end
 
+@interface PQQActorView ()
+@property (nonatomic, strong) UITableView *actorTableView;
+@end
+
 @interface PQQActorView ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -68,12 +72,12 @@
     if (!cell){
         cell = [[PQQActorTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: ACTOR_TABLEVIEW_CELL];
     }
-    if (indexPath.row < [self.actorData count]){
+//    if (indexPath.row < [self.actorData count]){  //不做这层保护使有问题会在调试时暴露出来
         PQQActorModel *curActor = [self.actorData objectAtIndex: indexPath.row];
         cell.actorName.text = curActor.name;
         cell.subName.text = curActor.subname;
         [cell.photo sd_setImageWithURL:[NSURL URLWithString:curActor.photo]];
-    }
+//    }
     
     return cell;
 }

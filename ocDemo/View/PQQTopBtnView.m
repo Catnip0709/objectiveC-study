@@ -15,9 +15,9 @@
 
 @interface PQQTopBtnView ()
 
-@property (nonatomic, strong)UIButton *movieBtn;
-@property (nonatomic, strong)UIButton *mallBtn;
-@property (nonatomic, strong)UIButton *concertBtn;
+@property (nonatomic, strong) UIButton *movieBtn;
+@property (nonatomic, strong) UIButton *mallBtn;
+@property (nonatomic, strong) UIButton *concertBtn;
 
 @end
 
@@ -26,7 +26,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]){
         [self initView];
-        [self pressEvent];
+        [self p_pressEvent];
         [self addSubview: self.movieBtn];
         [self addSubview: self.mallBtn];
         [self addSubview: self.concertBtn];
@@ -35,41 +35,41 @@
     return self;
 }
 
-- (void)pressMovieBtn {
-    [self pressConfig:self.movieBtn otherBtn1:self.concertBtn otherBtn2:self.mallBtn];
+- (void)p_pressMovieBtn {
+    [self p_pressConfig:self.movieBtn otherBtn1:self.concertBtn otherBtn2:self.mallBtn];
 }
 
-- (void)pressMallBtn {
-    [self pressConfig:self.mallBtn otherBtn1:self.movieBtn otherBtn2:self.concertBtn];
+- (void)p_pressMallBtn {
+    [self p_pressConfig:self.mallBtn otherBtn1:self.movieBtn otherBtn2:self.concertBtn];
 }
 
-- (void)pressConcertBtn {
-    [self pressConfig:self.concertBtn otherBtn1:self.movieBtn otherBtn2:self.mallBtn];
+- (void)p_pressConcertBtn {
+    [self p_pressConfig:self.concertBtn otherBtn1:self.movieBtn otherBtn2:self.mallBtn];
 }
 
-- (void)pressConfig:(UIButton *)selectedBtn otherBtn1:(UIButton *)otherBtn1 otherBtn2:(UIButton *)otherBtn2 {
+- (void)p_pressConfig:(UIButton *)selectedBtn otherBtn1:(UIButton *)otherBtn1 otherBtn2:(UIButton *)otherBtn2 {
     // 被选中的btn为红底白字
     selectedBtn.backgroundColor = UIColor.redColor;
      [selectedBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
     // 未被选中的btn为白底红字
     otherBtn1.backgroundColor = UIColor.whiteColor;
-     [otherBtn1 setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    [otherBtn1 setTitleColor:UIColor.redColor forState:UIControlStateNormal];
     otherBtn2.backgroundColor = UIColor.whiteColor;
-     [otherBtn2 setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+    [otherBtn2 setTitleColor:UIColor.redColor forState:UIControlStateNormal];
 }
 
 - (void)initView {
     self.movieBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.mallBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.concertBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [self configButton: self.movieBtn title:@"电影" frame:MOVIE_BTN_RECT];
-    [self configButton: self.mallBtn title:@"商场" frame:MALL_BTN_RECT];
-    [self configButton: self.concertBtn title:@"演出" frame:CONCERT_BTN_RECT];
+    [self p_configButton: self.movieBtn title:@"电影" frame:MOVIE_BTN_RECT];
+    [self p_configButton: self.mallBtn title:@"商场" frame:MALL_BTN_RECT];
+    [self p_configButton: self.concertBtn title:@"演出" frame:CONCERT_BTN_RECT];
     
-    [self pressMovieBtn]; //初始界面在movie
+    [self p_pressMovieBtn]; //设置初始界面在movie
 }
 
-- (void)configButton:(UIButton *)btn title:(NSString *)title frame:(CGRect)frame {
+- (void)p_configButton:(UIButton *)btn title:(NSString *)title frame:(CGRect)frame {
     btn.frame = frame;
     btn.backgroundColor = UIColor.whiteColor;
     btn.layer.masksToBounds = YES;
@@ -77,12 +77,14 @@
     btn.layer.borderColor = [UIColor redColor].CGColor;
     [btn setTitle: title forState: UIControlStateNormal];
     [btn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+//    [btn setTitleColor:UIColor.whiteColor forState:UIControlStateSelected];
+    
 }
 
-- (void)pressEvent {
-     [self.movieBtn addTarget:self action:@selector(pressMovieBtn)forControlEvents:UIControlEventTouchUpInside];
-     [self.mallBtn addTarget:self action:@selector(pressMallBtn)forControlEvents:UIControlEventTouchUpInside];
-     [self.concertBtn addTarget:self action:@selector(pressConcertBtn)forControlEvents:UIControlEventTouchUpInside];
+- (void)p_pressEvent {
+     [self.movieBtn addTarget:self action:@selector(p_pressMovieBtn)forControlEvents:UIControlEventTouchUpInside];
+     [self.mallBtn addTarget:self action:@selector(p_pressMallBtn)forControlEvents:UIControlEventTouchUpInside];
+     [self.concertBtn addTarget:self action:@selector(p_pressConcertBtn)forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end

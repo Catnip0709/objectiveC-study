@@ -69,9 +69,16 @@
     }
     return array;
 }
+
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     return YES;
 }
+
+@end
+
+@interface PQQMovieView ()
+@property (nonatomic, strong) UICollectionView *movieCollectionView;
+@property (nonatomic, assign) NSInteger selectedMovieId;
 
 @end
 
@@ -102,12 +109,12 @@
 //每个cell展示的内容的具体实现
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PQQMovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: MOVIE_COLLECTIONVIEW_CELL forIndexPath: indexPath];
-    if(indexPath.row < [self.movieData count]){
+//    if(indexPath.row < [self.movieData count]){ //不做这层保护，使如果有问题在调试时暴露出来
         PQQMovieModel *curMovie = [self.movieData objectAtIndex: indexPath.row];
         cell.movieName.text = curMovie.movieName;
         cell.movieTime.text = curMovie.movieTime;
         [cell.moviePic sd_setImageWithURL:[NSURL URLWithString:curMovie.moviePic]];
-    }
+//    }
     return cell;
 }
 
@@ -125,15 +132,15 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [self scrollToSelected];
+    [self p_scrollToSelected];
 }
 
 //Decelerating:减速
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self scrollToSelected];
+    [self p_scrollToSelected];
 }
 
-- (void)scrollToSelected {
+- (void)p_scrollToSelected {
     float tempId = (self.movieCollectionView.contentOffset.x - 75)/ 150;
     self.selectedMovieId = tempId < 0 ? 0 : ceil(tempId);
     //位置变化，使目的电影到最中间

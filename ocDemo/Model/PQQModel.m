@@ -11,20 +11,19 @@
 
 @implementation PQQActorModel
 
-- (id)init: (NSString *)name andSubName:(NSString *)subname andPhoto:(NSString *)photo {
+- (id)init: (NSString *)name subName:(NSString *)subname photo:(NSString *)photo {
     if (self = [super init]){
         self.name = name;
         self.subname = subname;
         self.photo = photo;
     }
-    
     return self;
 }
 @end
 
 @implementation PQQMovieModel
 
-- (id)init: (NSString *)movieName andMovieTime:(NSString *)movieTime andMoviePic:(NSString *)moviePic andActorData: (NSArray *)actorData {
+- (id)init: (NSString *)movieName movieTime:(NSString *)movieTime moviePic:(NSString *)moviePic actorData: (NSArray *)actorData {
     if (self = [super init]){
         self.movieName = movieName;
         self.movieTime = movieTime;
