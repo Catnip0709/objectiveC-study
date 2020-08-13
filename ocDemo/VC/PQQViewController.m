@@ -44,7 +44,9 @@
          dispatch_async(dispatch_get_main_queue(), ^{ // async异步，sync同步
              if (data){
                  weakSelf.PQQMovieView.movieData = data;
-                 PQQMovieModel *firstMovie = [data objectAtIndex: 0];
+                 PQQMovieModel *firstMovie = [data firstObject];
+                 // 不能像下面这样hardcode访问，防止crush
+                 // PQQMovieModel *firstMovie = [data objectAtIndex: 0];
                  weakSelf.PQQActorView.actorData = firstMovie.actorData;
              }
          });
